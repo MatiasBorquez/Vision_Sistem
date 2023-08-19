@@ -10,61 +10,48 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
     <height>600</height>
    </size>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>15</pointsize>
-    <weight>75</weight>
-    <bold>true</bold>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0,0,0,255), stop:1 rgba(50, 50, 50, 255));
-TabWidget::pane { background-color: white; };
- QTabBar::tab:selected { background-color: blue; };</string>
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(111, 111, 111, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="maximumSize">
-    <size>
-     <width>16777212</width>
-     <height>16777215</height>
-    </size>
-   </property>
-   <property name="cursor">
-    <cursorShape>WaitCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">layoutHorizontalSpacing: 6;
-layoutVerticalSpacing: 6;
-</string>
-   </property>
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
-      <property name="styleSheet">
-       <string notr="true">QTabBar::tab:selected { background-color: rgb(40,0,255); }
-QTabBar::tab:!selected { background-color: rgb(80,80,80); }
-</string>
-      </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
        <attribute name="title">
-        <string>Home</string>
+        <string>HOME</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout">
+       <layout class="QGridLayout" name="gridLayout_2">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -79,9 +66,6 @@ QTabBar::tab:!selected { background-color: rgb(80,80,80); }
         </property>
         <item row="0" column="0">
          <widget class="QFrame" name="frame">
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -95,27 +79,64 @@ QTabBar::tab:!selected { background-color: rgb(80,80,80); }
            <property name="verticalSpacing">
             <number>9</number>
            </property>
-           <item row="3" column="0">
-            <widget class="QComboBox" name="camaraCBox">
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(255, 255, 255)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="SelecImageButton">
+           <item row="2" column="0">
+            <widget class="QLabel" name="label">
              <property name="font">
               <font>
-               <pointsize>11</pointsize>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0)</string>
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));
+color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
-              <string>Seleccionar imagen</string>
+              <string>Selecciona la camara USB</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QComboBox" name="camarasCBox">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QPushButton" name="capturarImagenButton">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>Capturar imagen</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));
+color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>Selecciona las pruebas a realizar</string>
              </property>
             </widget>
            </item>
@@ -123,13 +144,14 @@ QTabBar::tab:!selected { background-color: rgb(80,80,80); }
             <widget class="QCheckBox" name="activarPresenciaChB">
              <property name="font">
               <font>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop1 rgba(0, 0, 0, 0));
-color: rgb(255, 255, 0)</string>
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));
+color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>Presencia</string>
@@ -140,13 +162,14 @@ color: rgb(255, 255, 0)</string>
             <widget class="QCheckBox" name="activarColorChB">
              <property name="font">
               <font>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop1 rgba(0, 0, 0, 0));
-color: rgb(255, 255, 0)</string>
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));
+color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>Color</string>
@@ -157,16 +180,34 @@ color: rgb(255, 255, 0)</string>
             <widget class="QCheckBox" name="simuladorChB">
              <property name="font">
               <font>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop1 rgba(0, 0, 0, 0));
-color: rgb(255, 255, 0)</string>
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));
+color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>Simulador</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="SelectImageButton">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>Seleccionar imagen</string>
              </property>
             </widget>
            </item>
@@ -182,23 +223,6 @@ color: rgb(255, 255, 0)</string>
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="4" column="0">
-            <widget class="QPushButton" name="capturarImagenButton">
-             <property name="font">
-              <font>
-               <pointsize>11</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0)</string>
-             </property>
-             <property name="text">
-              <string>Capturar imagen</string>
-             </property>
-            </widget>
            </item>
            <item row="5" column="0">
             <spacer name="verticalSpacer_2">
@@ -216,34 +240,18 @@ color: rgb(255, 255, 0)</string>
              </property>
             </spacer>
            </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 0);
-background-color: rgb(0, 0, 0)</string>
-             </property>
-             <property name="text">
-              <string>Selecciona la camara USB</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_2">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 0);
-background-color: rgb(0, 0, 0)</string>
-             </property>
-             <property name="text">
-              <string>Selecciona las pruebas a realizar</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1" rowspan="10">
             <widget class="QLabel" name="imagenCapturadaLabel">
              <property name="minimumSize">
               <size>
                <width>500</width>
-               <height>534</height>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>500</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="palette">
@@ -270,9 +278,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -290,9 +298,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -310,9 +318,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -341,9 +349,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -361,9 +369,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -381,9 +389,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -394,9 +402,9 @@ background-color: rgb(0, 0, 0)</string>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
-                   <red>190</red>
-                   <green>190</green>
-                   <blue>190</blue>
+                   <red>120</red>
+                   <green>120</green>
+                   <blue>120</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -412,9 +420,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -432,9 +440,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -452,9 +460,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -480,201 +488,8 @@ background-color: rgb(0, 0, 0)</string>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
-       <property name="palette">
-        <palette>
-         <active>
-          <colorrole role="Button">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-          <colorrole role="Base">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-          <colorrole role="Window">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-         </active>
-         <inactive>
-          <colorrole role="Button">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-          <colorrole role="Base">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-          <colorrole role="Window">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-         </inactive>
-         <disabled>
-          <colorrole role="Button">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-          <colorrole role="Base">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-          <colorrole role="Window">
-           <brush brushstyle="LinearGradientPattern">
-            <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
-             <gradientstop position="0.000000000000000">
-              <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </gradientstop>
-             <gradientstop position="1.000000000000000">
-              <color alpha="255">
-               <red>50</red>
-               <green>50</green>
-               <blue>50</blue>
-              </color>
-             </gradientstop>
-            </gradient>
-           </brush>
-          </colorrole>
-         </disabled>
-        </palette>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
        <attribute name="title">
-        <string>Color</string>
+        <string>COLOR</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <property name="leftMargin">
@@ -704,28 +519,85 @@ background-color: rgb(0, 0, 0)</string>
            <property name="verticalSpacing">
             <number>9</number>
            </property>
-           <item row="3" column="0">
-            <widget class="QPushButton" name="guardarRoiColorButton">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_4">
              <property name="font">
               <font>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0)</string>
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
              </property>
              <property name="text">
-              <string>Guardar ROI y Color</string>
+              <string>Porcentaje de aceptación</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1" rowspan="6">
-            <widget class="QLabel" name="ImagenColorLabel">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+             </property>
+             <property name="text">
+              <string>Opciones:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="guardarRoiColorButton">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>Guardar ROI y color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QSpinBox" name="pAceptacionColorSpin">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1" rowspan="5">
+            <widget class="QLabel" name="imagenColorLabel">
              <property name="minimumSize">
               <size>
                <width>550</width>
-               <height>534</height>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -758,9 +630,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -778,9 +650,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -798,9 +670,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -829,9 +701,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -849,9 +721,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -869,9 +741,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -882,9 +754,9 @@ background-color: rgb(0, 0, 0)</string>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
-                   <red>190</red>
-                   <green>190</green>
-                   <blue>190</blue>
+                   <red>120</red>
+                   <green>120</green>
+                   <blue>120</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -900,9 +772,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -920,9 +792,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -940,9 +812,9 @@ background-color: rgb(0, 0, 0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -962,62 +834,6 @@ background-color: rgb(0, 0, 0)</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Opciones:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QSpinBox" name="pAceptacionColorSpin">
-             <property name="styleSheet">
-              <string notr="true">background-color: white</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Porcentaje de aceptación</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <spacer name="verticalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </item>
@@ -1025,7 +841,7 @@ color: rgb(255,255,0)</string>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Presencia</string>
+        <string>PRESENCIA</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
         <property name="leftMargin">
@@ -1055,28 +871,85 @@ color: rgb(255,255,0)</string>
            <property name="verticalSpacing">
             <number>9</number>
            </property>
-           <item row="3" column="0">
-            <widget class="QPushButton" name="guardarElementoPresencia">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_5">
              <property name="font">
               <font>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0)</string>
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
              </property>
              <property name="text">
-              <string>Guardar ROI y Color</string>
+              <string>Cantidad minima</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1" rowspan="6">
-            <widget class="QLabel" name="ImagenPresenciaLabel">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+             </property>
+             <property name="text">
+              <string>Opciones:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="guardarElementoPresencia">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>Guardar elemento</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QSpinBox" name="pAceptacionPresenciaSpin">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1" rowspan="5">
+            <widget class="QLabel" name="imagenPresenciaLabel">
              <property name="minimumSize">
               <size>
                <width>550</width>
-               <height>534</height>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -1109,9 +982,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1129,9 +1002,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1149,9 +1022,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1180,9 +1053,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1200,9 +1073,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1220,9 +1093,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1233,9 +1106,9 @@ color: rgb(255,255,0)</string>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
-                   <red>190</red>
-                   <green>190</green>
-                   <blue>190</blue>
+                   <red>120</red>
+                   <green>120</green>
+                   <blue>120</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1251,9 +1124,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1271,9 +1144,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1291,9 +1164,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1313,62 +1186,6 @@ color: rgb(255,255,0)</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Opciones:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QSpinBox" name="pAceptacionPresenciaSpin">
-             <property name="styleSheet">
-              <string notr="true">background-color: white</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Cantidad minima</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <spacer name="verticalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </item>
@@ -1376,9 +1193,21 @@ color: rgb(255,255,0)</string>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>Test</string>
+        <string>TEST</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
          <widget class="QFrame" name="frame_4">
           <property name="frameShape">
@@ -1394,80 +1223,291 @@ color: rgb(255,255,0)</string>
            <property name="verticalSpacing">
             <number>9</number>
            </property>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="cargarImagenTest">
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_8">
              <property name="font">
               <font>
+               <pointsize>15</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0)</string>
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
              </property>
              <property name="text">
-              <string>Cargar imagen</string>
+              <string>Resultados:</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="0">
-            <widget class="QLabel" name="label_13">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
+           <item row="6" column="0">
+            <widget class="QFrame" name="frame_5">
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));</string>
              </property>
-             <property name="text">
-              <string>Color:</string>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>Color:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_15">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>Color:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>Presencia:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="resultadoColorLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>N/A</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="resultadoPresenciaLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>N/A</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_12">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>Presencia:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLabel" name="porcentajeColorRes">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>N/A</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLabel" name="porcentajePresenciaRes">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+                </property>
+                <property name="text">
+                 <string>N/A</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
-           <item row="2" column="0">
+           <item row="3" column="0">
             <widget class="QPushButton" name="realizarTestButton">
              <property name="font">
               <font>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0)</string>
+              <string notr="true">background-color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>Realizar test</string>
              </property>
             </widget>
            </item>
-           <item row="15" column="0">
-            <widget class="QLabel" name="label_15">
+           <item row="7" column="0">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="4" column="0">
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Preferred</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_7">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <pointsize>9</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
              </property>
              <property name="text">
-              <string>Presencia:</string>
+              <string>Opciones:</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="2" rowspan="19">
+           <item row="2" column="0">
+            <widget class="QPushButton" name="cargarImagenTest">
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>Cargar imagen</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="resultadoGeneralLabel">
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 0);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));</string>
+             </property>
+             <property name="text">
+              <string>RESULTADO</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" rowspan="9">
             <widget class="QLabel" name="imagenTestLabel">
              <property name="minimumSize">
               <size>
                <width>550</width>
-               <height>500</height>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -1500,9 +1540,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1520,9 +1560,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1540,9 +1580,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1571,9 +1611,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1591,9 +1631,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1611,9 +1651,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1624,9 +1664,9 @@ color: rgb(255,255,0)</string>
                 <colorrole role="WindowText">
                  <brush brushstyle="SolidPattern">
                   <color alpha="255">
-                   <red>190</red>
-                   <green>190</green>
-                   <blue>190</blue>
+                   <red>120</red>
+                   <green>120</green>
+                   <blue>120</blue>
                   </color>
                  </brush>
                 </colorrole>
@@ -1642,9 +1682,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1662,9 +1702,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1682,9 +1722,9 @@ color: rgb(255,255,0)</string>
                    </gradientstop>
                    <gradientstop position="1.000000000000000">
                     <color alpha="255">
-                     <red>50</red>
-                     <green>50</green>
-                     <blue>50</blue>
+                     <red>111</red>
+                     <green>111</green>
+                     <blue>111</blue>
                     </color>
                    </gradientstop>
                   </gradient>
@@ -1704,209 +1744,6 @@ color: rgb(255,255,0)</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="0">
-            <widget class="QLabel" name="resultadoColorLabel">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>N/A</string>
-             </property>
-            </widget>
-           </item>
-           <item row="14" column="0">
-            <widget class="QLabel" name="porcentajeColorLabel">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>N/A</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_7">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Opciones:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Resultados:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="11" column="0">
-            <widget class="QLabel" name="label_11">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Presencia:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Color:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="12" column="0">
-            <widget class="QLabel" name="resultadoPresenciaLabel">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>N/A</string>
-             </property>
-            </widget>
-           </item>
-           <item row="17" column="0">
-            <spacer name="verticalSpacer_7">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="16" column="0">
-            <widget class="QLabel" name="porcentajePresenciaLabel">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>N/A</string>
-             </property>
-            </widget>
-           </item>
-           <item row="18" column="0">
-            <widget class="QLabel" name="resultadoGeneralLabel">
-             <property name="font">
-              <font>
-               <pointsize>15</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0,0,0,0), stop:1 rgba(255, 255, 255, 255));
-color: rgb(255,255,0)</string>
-             </property>
-             <property name="text">
-              <string>Resultado</string>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </item>
@@ -1915,6 +1752,11 @@ color: rgb(255,255,0)</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

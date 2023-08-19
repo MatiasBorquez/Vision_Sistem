@@ -1,0 +1,4 @@
+*.jpg
+*.ui
+.idea/*
+__pycache__/*

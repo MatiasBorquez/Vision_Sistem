@@ -12,11 +12,11 @@ def leerCamarasDisponibles():
         else:
             array.append(str(index))
         cap.release()
-        index +=1
+        index += 1
     return array
 
 def capturarImagenShow(camara):
-    cap = cv2.VideoCapture(camara, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     leido, frame = cap.read()
     cv2.imwrite("capture.jpg", frame)
     height, width, bytesPerComponent = frame.shape
