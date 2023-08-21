@@ -78,7 +78,7 @@ def extractColor(frame, r):
 
 def testColor(porcentajeMeta, frameX, bajo, alto, totalX):
     frame = frameX.copy()
-    frameHSV = cv2.cvtColor(frame, bajo, alto)
+    frameHSV = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     mask = cv2.inRange(frameHSV, bajo, alto)
     total = 0
@@ -101,7 +101,7 @@ def testColor(porcentajeMeta, frameX, bajo, alto, totalX):
         res = ("NG", porcentaje)
     else:
         res = ('OK', porcentaje)
-    return res
+    return res, frame
 
 def testPlantilla(img_rgbx, r, totalX, imgTestShow, imgMaster):
     global box
@@ -113,7 +113,7 @@ def testPlantilla(img_rgbx, r, totalX, imgTestShow, imgMaster):
     w, h = template.shape[::-1]
     res = cv2.matchTemplate(img_gray,template, cv2.TM_CCORR_NORMED)
     threshold = 0.93
-    rectangulos = np.where(res > threshold)
+    rectangulos = np.where(res >= threshold)
     boxes =[]
     for pt in zip(*rectangulos[::-1]):
         box = (pt[0],pt[1],pt[0]+w,pt[1]+h)

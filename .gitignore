@@ -2,3 +2,4 @@
 *.ui
 .idea/*
 __pycache__/*
+Imagen/*

@@ -25,6 +25,11 @@ class aplicacionWindow(QMainWindow):
         self.dialogo.activarPresenciaChB.clicked.connect(self.presenciaClicked)
         self.dialogo.activarPresenciaChB.clicked.connect(self.habilitarTest)
         self.dialogo.SelectImageButton.clicked.connect(self.simuladorImagen)
+        self.dialogo.guardarRoiColorButton.clicked.connect(self.guardarROIColor)
+        self.dialogo.guardarElementoPresencia.clicked.connect(self.guardarROIPresencia)
+        self.dialogo.cargarImagenTest.clicked.connect(self.cargarImagenTestSim)
+        self.dialogo.realizarTestButton.clicked.connect(self.testFunc)
+
 
     def inicializar(self):
         #Desabilitar las ventanas
@@ -41,7 +46,7 @@ class aplicacionWindow(QMainWindow):
             self.dialogo.capturarImagenButton.setEnabled(False)
             self.dialogo.camarasCBox.setEnabled(False)
             self.dialogo.camarasCBox.clear()
-            self.dialogo.cargarImagenTest.setEnabled(False)
+            self.dialogo.cargarImagenTest.setDisabled(False)
             self.dialogo.realizarTestButton.setDisabled(True)
         # habilita las camaras al seleccionar el simulador
         else:
@@ -97,15 +102,90 @@ class aplicacionWindow(QMainWindow):
             self.dialogo.tabWidget.setTabEnabled(2, False)
 
     def habilitarTest(self):
-        if(self.dialogo.activarColorChB.isChecked() == True or self.dialogo.activarPresenciaChB.isChecked() == True):
+        if (self.dialogo.activarColorChB.isChecked() == True or
+                self.dialogo.activarPresenciaChB.isChecked() == True):
             self.dialogo.tabWidget.setTabEnabled(3, True)
         else:
             self.dialogo.tabWidget.setTabEnabled(3, False)
 
     def simuladorImagen(self):
         ruta = selectFile()
-        self.img, height, width, bytesPerLine = visionLib.capturarImagenSim(ruta)
-        self.mostrarImagenes(self.img, height, width, bytesPerLine)
+        if ruta != '':
+            self.img, height, width, bytesPerLine = visionLib.capturarImagenSim(ruta)
+            self.mostrarImagenes(self.img, height, width, bytesPerLine)
+
+    def guardarROIColor(self):
+        self.rectanguloColor = self.dialogo.imagenColorLabel.obtenerRectangulo()
+        self.porcentajeColor = int(self.dialogo.pAceptacionColorSpin.value())
+        self.bajoX, self.altoX, self.total = visionLib.extractColor(self.img, self.rectanguloColor)
+
+    def guardarROIPresencia(self):
+        self.rectanguloPresencia = self.dialogo.imagenPresenciaLabel.obtenerRectangulo()
+        self.porcentajePresencia = int(self.dialogo.pAceptacionPresenciaSpin.value())
+
+    def cargarImagenTestSim(self):
+        rutaTest = selectFile()
+        if ruta != '':
+            self.imgTest, height, width, bytesPerLine = visionLib.capturarImagenSim(rutaTest)
+            self.mostrarImagenTest(self.imgTest, height, width, bytesPerLine)
+            self.dialogo.realizarTestButton.setDisabled(False)
+            self.imgTestShow = self.imgTest
+
+    def mostrarImagenTest(self, img, height, widht, bytesPerLine):
+        QImg = QImage(img.data, widht, height, bytesPerLine, QImage.Format_RGB888)
+        self.pixmap = QPixmap.fromImage(QImg)
+        self.dialogo.imagenTestLabel.setPixmap(self.pixmap)
+        self.dialogo.imagenTestLabel.setCursor(Qt.CrossCursor)
+        self.dialogo.imagenTestLabel.setFixedWidth(self.ancho)
+        self.dialogo.imagenTestLabel.setFixedHeight(self.alto)
+
+    def takePhoto(self):
+        camara = self.dialogo.camarasCBox.currentText()
+        self.imgTest, height, widht, bytesPerLine = visionLib.capturarImagenShow(camara)
+        self.mostrarImagenTest(self.imgTest, height, widht, bytesPerLine)
+        self.imgTestShow = self.imgTest
+
+    def testFunc(self):
+        x = self.dialogo.simuladorChB.isChecked()
+        # Chequea si la imagen es capturada desde la camara o una archivo
+        if x == False:
+            self.takePhoto()
+        else:
+            self.dialogo.realizarTestButton.setDisabled(True)
+
+        testColor = self.dialogo.activarColorChB.isChecked()
+        if testColor == True:
+            resultColor, imageReturnedColor = visionLib.testColor(self.porcentajeColor, self.imgTest,
+                                                                  self.bajoX, self.altoX, self.total)
+            self.imgTestShow, height, width, bytesPerLine = visionLib.convertirImagen(imageReturnedColor)
+            self.mostrarImagenTest(self.imgTestShow,height, width, bytesPerLine)
+        else:
+            resultColor = ('Ok', 100)
+
+        testPresencia = self.dialogo.activarPresenciaChB.isChecked()
+        if testPresencia == True:
+            resultPresencia, imageReturnedPresencia = visionLib.testPlantilla(self.imgTest, self.rectanguloPresencia,
+                                                                              self.porcentajePresencia, self.imgTestShow, self.img)
+
+            self.imgTestShow, height, width, bytesPerLine = visionLib.convertirImagen(imageReturnedPresencia)
+            self.mostrarImagenTest(self.imgTestShow,height,width,bytesPerLine)
+        else:
+            resultPresencia = ('OK', 100)
+
+        self.dialogo.resultadoColorLabel.setText(resultColor[0])
+        self.dialogo.porcentajeColorRes.setText(str(round(resultColor[1],2)))
+        self.dialogo.resultadoPresenciaLabel.setText(resultPresencia[0])
+        self.dialogo.porcentajePresenciaRes.setText(str(round(resultPresencia[1])))
+
+        if resultColor[0] == 'OK' and resultPresencia[0] == 'OK':
+            self.dialogo.resultadoGeneralLabel.setText('PASS')
+            self.dialogo.resultadoGeneralLabel.setStyleSheet('background-color: green; border 1px, solid black;')
+        else:
+            self.dialogo.resultadoGeneralLabel.setText('FAIL')
+            self.dialogo.resultadoGeneralLabel.setStyleSheet('background-color: red; border 1px, solid black;')
+
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
