@@ -109,26 +109,25 @@ def testPlantilla(img_rgbx, r, totalX, imgTestShow, imgMaster):
     img_rgb = img_rgbx.copy()
     img_grayT = cv2.cvtColor(imgMaster, cv2.COLOR_BGR2GRAY)
     img_gray = cv2.cvtColor(img_rgbx, cv2.COLOR_BGR2GRAY)
-    template = img_grayT[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
+    template = img_grayT[int(r[1]):int(r[1] + r[3]), int(r[0]):int(r[0] + r[2])]
     w, h = template.shape[::-1]
-    res = cv2.matchTemplate(img_gray,template, cv2.TM_CCORR_NORMED)
-    threshold = 0.93
+    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
+    threshold = 0.92
     rectangulos = np.where(res >= threshold)
-    boxes =[]
+    boxes = []
     for pt in zip(*rectangulos[::-1]):
-        box = (pt[0],pt[1],pt[0]+w,pt[1]+h)
+        box = (pt[0], pt[1], pt[0] + w, pt[1] + h)
         boxes.append(box)
-
     boxes = np.array(boxes)
     boxes = nms.non_max_suppression_fast(boxes, 0.3)
 
     for box in boxes:
-        cv2.rectangle(imgTestShow, (box[0], box[1]), (box[2], box[3]), (255,0,0), 2)
-        total += 1
+        cv2.rectangle(imgTestShow, (box[0], box[1]), (box[2], box[3]), (255, 0, 0), 2)
+        total = total + 1
 
     if total == totalX:
-        res = ('OK',total)
+        res = ("OK", total)
     else:
-        res = ('NG', total)
+        res = ("NG", total)
 
     return res, imgTestShow

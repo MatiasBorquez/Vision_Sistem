@@ -125,7 +125,7 @@ class aplicacionWindow(QMainWindow):
 
     def cargarImagenTestSim(self):
         rutaTest = selectFile()
-        if ruta != '':
+        if rutaTest != '':
             self.imgTest, height, width, bytesPerLine = visionLib.capturarImagenSim(rutaTest)
             self.mostrarImagenTest(self.imgTest, height, width, bytesPerLine)
             self.dialogo.realizarTestButton.setDisabled(False)
@@ -160,7 +160,7 @@ class aplicacionWindow(QMainWindow):
             self.imgTestShow, height, width, bytesPerLine = visionLib.convertirImagen(imageReturnedColor)
             self.mostrarImagenTest(self.imgTestShow,height, width, bytesPerLine)
         else:
-            resultColor = ('Ok', 100)
+            resultColor = ('OK', 100)
 
         testPresencia = self.dialogo.activarPresenciaChB.isChecked()
         if testPresencia == True:
